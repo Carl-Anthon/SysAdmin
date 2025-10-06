@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #0a0a1a;
+    color: #00ffcc;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#network-map {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image:
+        linear-gradient(rgba(0, 255, 204, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 204, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+.node {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.node circle {
+    fill: #00ffcc;
+    stroke: #00ffcc;
+    stroke-width: 2px;
+    filter: drop-shadow(0 0 5px #00ffcc) drop-shadow(0 0 10px #00ffcc);
+}
+
+.node:hover circle {
+    fill: #ffffff;
+    stroke: #ffffff;
+    filter: drop-shadow(0 0 8px #ffffff) drop-shadow(0 0 15px #ffffff);
+}
+
+.link {
+    stroke: #00ffcc;
+    stroke-width: 1px;
+    stroke-dasharray: 5, 5;
+    animation: dash 1s linear infinite;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: -10;
+    }
+}
+
+.tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid #00ffcc;
+    border-radius: 5px;
+    padding: 10px;
+    color: #00ffcc;
+    font-size: 14px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+}
